@@ -1,12 +1,9 @@
 package lotto.model;
 
-import static lotto.common.Strategy.LOTTO_MAX_NUMBER;
-import static lotto.common.Strategy.LOTTO_MIN_NUMBER;
 import static lotto.common.Strategy.LOTTO_SIZE;
 import static lotto.common.message.ErrorMessage.ERROR_MESSAGE_SUFFIX;
 import static lotto.common.message.ErrorMessage.INVALID_LOTTO_SIZE;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class Lotto {

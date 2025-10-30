@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import lotto.model.Lotto;
-import lotto.model.LottoGenerator;
 import lotto.model.PurchasedLottosDto;
 import lotto.model.PurchaseAmount;
 import lotto.model.firstclasscollection.LottoTickets;

@@ -16,9 +16,22 @@ public class LottoController {
     }
 
     public void run() {
-        String input = lottoView.requestPurchaseAmount();
-        PurchaseAmount lottoPurchaseAmount = new PurchaseAmount(input);
+        PurchaseAmount lottoPurchaseAmount = requestPurchaseAmount();
 
         PurchasedLottosDto purchasedLottosDto = lottoService.buyLotto(lottoPurchaseAmount);
+        // feat: 구매한 로또 출력 기능 추가
+    }
+
+    private PurchaseAmount requestPurchaseAmount() {
+        PurchaseAmount lottoPurchaseAmount;
+
+        while (true) {
+            try {
+                String input = lottoView.requestPurchaseAmount();
+                return new PurchaseAmount(input);
+            } catch (IllegalArgumentException iae) {
+                System.out.println(iae.getMessage());
+            }
+        }
     }
 }
