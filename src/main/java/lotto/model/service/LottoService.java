@@ -1,4 +1,6 @@
 package lotto.model.service;
 
-public class LottoService {
+public interface LottoService {
+
+    long getLottoTicketCount();
 }

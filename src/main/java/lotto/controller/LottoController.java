@@ -1,5 +1,8 @@
 package lotto.controller;
 
+import lotto.model.PurchaseAmount;
+import lotto.model.service.LottoService;
+import lotto.model.service.impl.LottoServiceImpl;
 import lotto.view.LottoView;
 
 public class LottoController {
@@ -11,6 +14,8 @@ public class LottoController {
     }
 
     public void run() {
-        double lottoPurchaseAmount = lottoView.requestPurchaseAmount();
+        String input = lottoView.requestPurchaseAmount();
+        PurchaseAmount lottoPurchaseAmount = new PurchaseAmount(input);
+        LottoService lottoService = new LottoServiceImpl(lottoPurchaseAmount);
     }
 }
