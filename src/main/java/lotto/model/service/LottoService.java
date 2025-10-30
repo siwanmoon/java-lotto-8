@@ -1,6 +1,9 @@
 package lotto.model.service;
 
+import lotto.model.PurchasedLottosDto;
+import lotto.model.PurchaseAmount;
+
 public interface LottoService {
 
-    long getLottoTicketCount();
+    PurchasedLottosDto buyLotto(PurchaseAmount purchaseAmount);
 }

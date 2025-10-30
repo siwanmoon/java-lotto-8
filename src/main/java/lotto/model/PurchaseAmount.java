@@ -1,7 +1,7 @@
 package lotto.model;
 
-import static lotto.common.constant.Validator.LOTTO_PRICE;
-import static lotto.common.constant.Validator.MAX_PURCHASE_AMOUNT;
+import static lotto.common.Strategy.LOTTO_PRICE;
+import static lotto.common.Strategy.MAX_PURCHASE_AMOUNT;
 import static lotto.common.message.ErrorMessage.ERROR_MESSAGE_SUFFIX;
 import static lotto.common.message.ErrorMessage.PURCHASE_AMOUNT_HAS_STRING;
 import static lotto.common.message.ErrorMessage.PURCHASE_AMOUNT_NOT_MULTIPLE_OF_LOTTO_PRICE;
@@ -13,12 +13,16 @@ public class PurchaseAmount {
     private final long purchaseAmount;
 
     public PurchaseAmount(String input) {
-        double price = checkPriceOnlyNumber(input);
-        checkPriceTooBig(price);
-        checkPriceNotPositive(price);
-        checkAmountIsMultipleOfLottoPrice(price);
+        double purchaseAmount = checkPriceOnlyNumber(input);
+        checkPriceTooBig(purchaseAmount);
+        checkPriceNotPositive(purchaseAmount);
+        checkAmountIsMultipleOfLottoPrice(purchaseAmount);
 
-        this.purchaseAmount = (long) price;
+        this.purchaseAmount = (long) purchaseAmount;
+    }
+
+    public long getPurchaseAmount() {
+        return purchaseAmount;
     }
 
     private double checkPriceOnlyNumber(String input) {

@@ -1,6 +1,6 @@
 package lotto.common.message;
 
-import static lotto.common.constant.Validator.LOTTO_PRICE;
+import static lotto.common.Strategy.LOTTO_PRICE;
 
 public enum ErrorMessage {
 
