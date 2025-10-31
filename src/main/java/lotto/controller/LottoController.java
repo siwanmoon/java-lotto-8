@@ -19,6 +19,8 @@ public class LottoController {
         PurchaseAmount lottoPurchaseAmount = requestPurchaseAmount();
 
         PurchasedLottosDto purchasedLottosDto = lottoService.buyLotto(lottoPurchaseAmount);
+        // docs: README에 클래스 설명 추가
+        // test: 테스트 코드 추가
         // feat: 구매한 로또 출력 기능 추가
     }
 
