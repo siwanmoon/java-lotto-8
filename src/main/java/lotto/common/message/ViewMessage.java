@@ -7,7 +7,8 @@ public enum ViewMessage {
     PRINT_LOTTO_NUMBER_PREFIX("["),
     PRINT_LOTTO_NUMBER_SUFFIX("]"),
     PRINT_LOTTO_NUMBER_SEPERATOR(", "),
-    REQUEST_LOTTO_WINNING_NUMBER("당첨 번호를 입력해 주세요.");
+    REQUEST_LOTTO_WINNING_NUMBER("당첨 번호를 입력해 주세요."),
+    REQUEST_BONUS_NUMBER("보너스 번호를 입력해 주세요.");
 
     private final String message;
 

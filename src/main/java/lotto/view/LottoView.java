@@ -31,4 +31,9 @@ public class LottoView {
         outputView.requestLottoWinningNumber();
         return inputView.getTrimmedInput();
     }
+
+    public String requestBonusNumber() {
+        outputView.requestBonusNumber();
+        return inputView.getTrimmedInput();
+    }
 }

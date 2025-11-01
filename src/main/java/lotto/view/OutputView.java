@@ -4,6 +4,7 @@ import static lotto.common.message.ViewMessage.PRINT_LOTTO_NUMBER_SEPERATOR;
 import static lotto.common.message.ViewMessage.PRINT_LOTTO_NUMBER_PREFIX;
 import static lotto.common.message.ViewMessage.PRINT_LOTTO_NUMBER_SUFFIX;
 import static lotto.common.message.ViewMessage.PRINT_TICKETS_COUNT;
+import static lotto.common.message.ViewMessage.REQUEST_BONUS_NUMBER;
 import static lotto.common.message.ViewMessage.REQUEST_LOTTO_WINNING_NUMBER;
 import static lotto.common.message.ViewMessage.REQUEST_PURCHASE_AMOUNT;
 
@@ -41,5 +42,9 @@ public class OutputView {
 
     public void requestLottoWinningNumber() {
         System.out.println(REQUEST_LOTTO_WINNING_NUMBER.getMessage());
+    }
+
+    public void requestBonusNumber() {
+        System.out.println(REQUEST_BONUS_NUMBER.getMessage());
     }
 }

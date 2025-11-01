@@ -1,5 +1,6 @@
 package lotto.controller;
 
+import lotto.model.BonusNumber;
 import lotto.model.Lotto;
 import lotto.model.LottoDTO;
 import lotto.model.firstclasscollection.LottoTicketsDTO;
@@ -21,6 +22,7 @@ public class LottoController {
         PurchaseAmount lottoPurchaseAmount = requestPurchaseAmount();
         LottoTicketsDTO lottoTicketsDTO = buyLotto(lottoPurchaseAmount);
         Lotto winningLotto = requestLottoWinningNumber();
+        BonusNumber bonusNumber = requestBonusNumber();
     }
 
     private PurchaseAmount requestPurchaseAmount() {
@@ -46,6 +48,17 @@ public class LottoController {
             try {
                 String input = lottoView.requestLottoWinningNumber();
                 return Lotto.of(input);
+            } catch (IllegalArgumentException iae) {
+                lottoView.printErrorMessage(iae.getMessage());
+            }
+        }
+    }
+
+    private BonusNumber requestBonusNumber() {
+        while (true) {
+            try {
+                String input = lottoView.requestBonusNumber();
+                return new BonusNumber(input);
             } catch (IllegalArgumentException iae) {
                 lottoView.printErrorMessage(iae.getMessage());
             }
