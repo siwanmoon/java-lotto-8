@@ -6,7 +6,8 @@ public enum ViewMessage {
     PRINT_TICKETS_COUNT("개를 구매했습니다."),
     PRINT_LOTTO_NUMBER_PREFIX("["),
     PRINT_LOTTO_NUMBER_SUFFIX("]"),
-    LOTTO_NUMBER_SEPERATOR(", ");
+    PRINT_LOTTO_NUMBER_SEPERATOR(", "),
+    REQUEST_LOTTO_WINNING_NUMBER("당첨 번호를 입력해 주세요.");
 
     private final String message;
 

@@ -13,19 +13,23 @@ public class PurchaseAmount {
     private final long purchaseAmount;
 
     public PurchaseAmount(String input) {
-        double purchaseAmount = checkPriceOnlyNumber(input);
-        checkPriceTooBig(purchaseAmount);
-        checkPriceNotPositive(purchaseAmount);
-        checkAmountIsMultipleOfLottoPrice(purchaseAmount);
-
-        this.purchaseAmount = (long) purchaseAmount;
+        this.purchaseAmount = (long) validate(input);
     }
 
     public long getPurchaseAmount() {
         return purchaseAmount;
     }
 
-    private double checkPriceOnlyNumber(String input) {
+    private double validate(String input) {
+        double purchaseAmount = changeInputNumeric(input);
+        checkPriceTooBig(purchaseAmount);
+        checkPriceNotPositive(purchaseAmount);
+        checkAmountIsMultipleOfLottoPrice(purchaseAmount);
+
+        return purchaseAmount;
+    }
+
+    private double changeInputNumeric(String input) {
         double price;
 
         try {

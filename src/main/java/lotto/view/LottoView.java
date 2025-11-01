@@ -1,5 +1,6 @@
 package lotto.view;
 
+import java.util.List;
 import lotto.model.firstclasscollection.LottoTicketsDTO;
 
 public class LottoView {
@@ -12,6 +13,10 @@ public class LottoView {
         this.outputView = outputView;
     }
 
+    public void printErrorMessage(String errorMessage) {
+        outputView.printMessage(errorMessage);
+    }
+
     public String requestPurchaseAmount() {
         outputView.requestPurchaseAmount();
         return inputView.getTrimmedInput();
@@ -20,5 +25,10 @@ public class LottoView {
     public void printPurchasedLottos(LottoTicketsDTO lottoTicketsDTO) {
         outputView.printTicketsCount(lottoTicketsDTO);
         outputView.printTickets(lottoTicketsDTO);
+    }
+
+    public String requestLottoWinningNumber() {
+        outputView.requestLottoWinningNumber();
+        return inputView.getTrimmedInput();
     }
 }

@@ -1,9 +1,10 @@
 package lotto.view;
 
-import static lotto.common.message.ViewMessage.LOTTO_NUMBER_SEPERATOR;
+import static lotto.common.message.ViewMessage.PRINT_LOTTO_NUMBER_SEPERATOR;
 import static lotto.common.message.ViewMessage.PRINT_LOTTO_NUMBER_PREFIX;
 import static lotto.common.message.ViewMessage.PRINT_LOTTO_NUMBER_SUFFIX;
 import static lotto.common.message.ViewMessage.PRINT_TICKETS_COUNT;
+import static lotto.common.message.ViewMessage.REQUEST_LOTTO_WINNING_NUMBER;
 import static lotto.common.message.ViewMessage.REQUEST_PURCHASE_AMOUNT;
 
 import java.util.stream.Collectors;
@@ -11,6 +12,10 @@ import lotto.model.LottoDTO;
 import lotto.model.firstclasscollection.LottoTicketsDTO;
 
 public class OutputView {
+
+    public void printMessage(String message) {
+        System.out.println(message);
+    }
 
     public void requestPurchaseAmount() {
         System.out.println(REQUEST_PURCHASE_AMOUNT.getMessage());
@@ -30,7 +35,11 @@ public class OutputView {
         return PRINT_LOTTO_NUMBER_PREFIX.getMessage()
                 + lottoDTO.numbers().stream()
                 .map(String::valueOf)
-                .collect(Collectors.joining(LOTTO_NUMBER_SEPERATOR.getMessage()))
+                .collect(Collectors.joining(PRINT_LOTTO_NUMBER_SEPERATOR.getMessage()))
                 + PRINT_LOTTO_NUMBER_SUFFIX.getMessage();
+    }
+
+    public void requestLottoWinningNumber() {
+        System.out.println(REQUEST_LOTTO_WINNING_NUMBER.getMessage());
     }
 }

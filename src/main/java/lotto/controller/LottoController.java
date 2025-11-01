@@ -1,5 +1,7 @@
 package lotto.controller;
 
+import lotto.model.Lotto;
+import lotto.model.LottoDTO;
 import lotto.model.firstclasscollection.LottoTicketsDTO;
 import lotto.model.PurchaseAmount;
 import lotto.model.service.LottoBuyingService;
@@ -17,21 +19,35 @@ public class LottoController {
 
     public void run() {
         PurchaseAmount lottoPurchaseAmount = requestPurchaseAmount();
-        LottoTicketsDTO lottoTicketsDTO = lottoBuyingService.buyLotto(lottoPurchaseAmount);
-        lottoView.printPurchasedLottos(lottoTicketsDTO);
-
-        // feat: 구매한 로또 출력 기능 추가
+        LottoTicketsDTO lottoTicketsDTO = buyLotto(lottoPurchaseAmount);
+        Lotto winningLotto = requestLottoWinningNumber();
     }
 
     private PurchaseAmount requestPurchaseAmount() {
-        PurchaseAmount lottoPurchaseAmount;
-
         while (true) {
             try {
                 String input = lottoView.requestPurchaseAmount();
                 return new PurchaseAmount(input);
             } catch (IllegalArgumentException iae) {
-                System.out.println(iae.getMessage());
+                lottoView.printErrorMessage(iae.getMessage());
+            }
+        }
+    }
+
+    private LottoTicketsDTO buyLotto(PurchaseAmount lottoPurchaseAmount) {
+        LottoTicketsDTO lottoTicketsDTO = lottoBuyingService.buyLotto(lottoPurchaseAmount);
+        lottoView.printPurchasedLottos(lottoTicketsDTO);
+
+        return lottoTicketsDTO;
+    }
+
+    private Lotto requestLottoWinningNumber() {
+        while (true) {
+            try {
+                String input = lottoView.requestLottoWinningNumber();
+                return Lotto.of(input);
+            } catch (IllegalArgumentException iae) {
+                lottoView.printErrorMessage(iae.getMessage());
             }
         }
     }
