@@ -17,8 +17,9 @@ public class LottoController {
 
     public void run() {
         PurchaseAmount lottoPurchaseAmount = requestPurchaseAmount();
-
         LottoTicketsDTO lottoTicketsDTO = lottoBuyingService.buyLotto(lottoPurchaseAmount);
+        lottoView.printPurchasedLottos(lottoTicketsDTO);
+
         // feat: 구매한 로또 출력 기능 추가
     }
 

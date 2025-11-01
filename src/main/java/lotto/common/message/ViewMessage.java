@@ -2,7 +2,11 @@ package lotto.common.message;
 
 public enum ViewMessage {
 
-    REQUEST_PURCHASE_AMOUNT("구입금액을 입력해 주세요");
+    REQUEST_PURCHASE_AMOUNT("구입금액을 입력해 주세요"),
+    PRINT_TICKETS_COUNT("개를 구매했습니다."),
+    PRINT_LOTTO_NUMBER_PREFIX("["),
+    PRINT_LOTTO_NUMBER_SUFFIX("]"),
+    LOTTO_NUMBER_SEPERATOR(", ");
 
     private final String message;
 

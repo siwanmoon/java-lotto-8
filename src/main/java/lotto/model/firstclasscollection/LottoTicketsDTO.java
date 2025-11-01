@@ -12,4 +12,8 @@ public record LottoTicketsDTO(List<LottoDTO> lottoTicketsDTO) {
 
         return new LottoTicketsDTO(lottoTicketsDTO);
     }
+
+    public int getTicketCount() {
+        return lottoTicketsDTO.size();
+    }
 }
