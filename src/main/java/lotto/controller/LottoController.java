@@ -1,24 +1,24 @@
 package lotto.controller;
 
-import lotto.model.PurchasedLottosDto;
+import lotto.model.firstclasscollection.LottoTicketsDTO;
 import lotto.model.PurchaseAmount;
-import lotto.model.service.LottoService;
+import lotto.model.service.LottoBuyingService;
 import lotto.view.LottoView;
 
 public class LottoController {
 
     private final LottoView lottoView;
-    private final LottoService lottoService;
+    private final LottoBuyingService lottoBuyingService;
 
-    public LottoController(LottoView lottoView, LottoService lottoService) {
+    public LottoController(LottoView lottoView, LottoBuyingService lottoBuyingService) {
         this.lottoView = lottoView;
-        this.lottoService = lottoService;
+        this.lottoBuyingService = lottoBuyingService;
     }
 
     public void run() {
         PurchaseAmount lottoPurchaseAmount = requestPurchaseAmount();
 
-        PurchasedLottosDto purchasedLottosDto = lottoService.buyLotto(lottoPurchaseAmount);
+        LottoTicketsDTO lottoTicketsDTO = lottoBuyingService.buyLotto(lottoPurchaseAmount);
         // docs: README에 클래스 설명 추가
         // test: 테스트 코드 추가
         // feat: 구매한 로또 출력 기능 추가

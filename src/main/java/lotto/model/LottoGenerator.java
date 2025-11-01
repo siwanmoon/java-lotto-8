@@ -1,6 +1,4 @@
-package lotto.model.service;
-
-import lotto.model.Lotto;
+package lotto.model;
 
 public interface LottoGenerator {
 

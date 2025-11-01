@@ -33,10 +33,37 @@
 
 ### [common]
 
+- `ErrorMessage` : 에러 발생시 출력할 메세지들을 모아놓은 상수 클래스
+- `ViewMessage` : 입출력시 사용할 메세지들을 모아놓은 상수 클래스
+
+
+- `Strategy` : 프로그램의 규칙과 관련된 상수를 뫃아놓은 클래스
+
 ### [controller]
+
+- `LottoController` : 로또 발행 프로그램을 관리하는 클래스
 
 ### [model]
 
+- `LottoTickets` : 구매한 로또들을 모아놓은 일급 컬렉션 객체
+- `LottoTicketsDTO` : `LottoTickets`의 데이터 전송 객체
+
+
+- `Lotto` : 로또 객체
+- `LottoDTO` : `Lotto`의 데이터 전송 객체
+- `LottoGenerator` : 로또를 생성하는 객체의 인터페이스
+- `LottoGeneratorImpl` : `LottoGenerator`를 구현한 객체
+- `PurchaseAmount` : 로또 구매 금액 객체
+
 ### [service]
 
+- `LottoBuyingServie` : 로또 구매 서비스를 담당하는 객체
+- `LottoBuyingServieImpl` : `LottoBuyingService`를 구현한 객체
+
 ### [view]
+
+- `LottoView` : 입출력을 담당하는 객체
+- `InputView` : 입력을 담당하는 객체
+- `OutputView` : 출력을 담당하는 객체
+
+ `Application` : 프로그램을 실행하는 객체

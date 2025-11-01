@@ -20,4 +20,8 @@ public class Lotto {
             throw new IllegalArgumentException(ERROR_MESSAGE_PREFIX.getMessage() + INVALID_LOTTO_SIZE.getMessage());
         }
     }
+
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
 }
