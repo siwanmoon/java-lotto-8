@@ -4,6 +4,7 @@ import lotto.model.BonusNumber;
 import lotto.model.Lotto;
 import lotto.model.LottoResult;
 import lotto.model.WinningLotto;
+import lotto.model.WinningResultDTO;
 import lotto.model.firstclasscollection.LottoTickets;
 import lotto.model.firstclasscollection.LottoTicketsDTO;
 import lotto.model.PurchaseAmount;
@@ -27,11 +28,18 @@ public class LottoController {
 
     public void run() {
         PurchaseAmount lottoPurchaseAmount = requestPurchaseAmount();
+
         LottoTickets userTickets = buyLotto(lottoPurchaseAmount);
+
         Lotto winningLottoWithoutBonus = requestLottoWinningNumber();
         WinningLotto winningLotto = requestBonusNumber(winningLottoWithoutBonus);
-        LottoResult lottoResult = lottoWinningService.calculateStatistics(userTickets, winningLotto);
-        double profitRate = lottoWinningService.calculateProfitRate(lottoResult, lottoPurchaseAmount);
+
+        WinningResultDTO winningResultDTO = lottoWinningService.calculateWinningResult(
+                userTickets,
+                winningLotto,
+                lottoPurchaseAmount);
+
+        lottoView.printWinningResult(winningResultDTO);
     }
 
     private PurchaseAmount requestPurchaseAmount() {

@@ -1,5 +1,6 @@
 package lotto.view;
 
+import lotto.model.WinningResultDTO;
 import lotto.model.firstclasscollection.LottoTicketsDTO;
 
 public class LottoView {
@@ -34,5 +35,10 @@ public class LottoView {
     public String requestBonusNumber() {
         outputView.requestBonusNumber();
         return inputView.getTrimmedInput();
+    }
+
+    public void printWinningResult(WinningResultDTO winningResultDTO) {
+        outputView.printStatistics(winningResultDTO);
+        outputView.printProfitRate(winningResultDTO);
     }
 }
