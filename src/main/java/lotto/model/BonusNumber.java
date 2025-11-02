@@ -52,4 +52,8 @@ public class BonusNumber {
             throw new IllegalArgumentException(BONUS_NUMBER_DECIMAL.getMessage());
         }
     }
+
+    public int getBonusNumber() {
+        return bonusNumber;
+    }
 }

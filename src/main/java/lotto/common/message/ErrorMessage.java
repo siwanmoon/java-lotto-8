@@ -27,7 +27,8 @@ public enum ErrorMessage {
     BONUS_NUMBER_HAS_STRING("보너스 번호에 문자가 입력되었습니다."),
     BONUS_NUMBER_OVER_MAX_NUMBER("보너스 번호는 " + LOTTO_MAX_NUMBER + "이하여야 합니다."),
     BONUS_NUMBER_UNDER_MIN_NUMBER("보너스 번호는 " + LOTTO_MIN_NUMBER + "이상이여야 합니다."),
-    BONUS_NUMBER_DECIMAL("보너스 번호는 소수일 수 없습니다.");
+    BONUS_NUMBER_DECIMAL("보너스 번호는 소수일 수 없습니다."),
+    BONUS_NUMBER_DUPLICATION("보너스 번호가 로또 번호와 중복되었습니다.");
 
     private final String message;
 

@@ -14,4 +14,8 @@ public class LottoTickets {
     public List<Lotto> getLottoTickets() {
         return lottoTickets;
     }
+
+    public boolean containsNumber(int number) {
+        return this.lottoTickets.stream().anyMatch(lotto -> lotto.contains(number));
+    }
 }

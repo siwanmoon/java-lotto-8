@@ -1,5 +1,7 @@
 package lotto.controller;
 
+import static lotto.common.message.ErrorMessage.BONUS_NUMBER_DUPLICATION;
+
 import lotto.model.BonusNumber;
 import lotto.model.Lotto;
 import lotto.model.firstclasscollection.LottoTickets;
@@ -27,7 +29,7 @@ public class LottoController {
         PurchaseAmount lottoPurchaseAmount = requestPurchaseAmount();
         LottoTickets lottoTickets = buyLotto(lottoPurchaseAmount);
         Lotto winningLotto = requestLottoWinningNumber();
-        BonusNumber bonusNumber = requestBonusNumber();
+        BonusNumber bonusNumber = requestBonusNumber(winningLotto);
 
         // feat: 로또 당첨 기능 추가해야함
     }
@@ -62,14 +64,23 @@ public class LottoController {
         }
     }
 
-    private BonusNumber requestBonusNumber() {
+    private BonusNumber requestBonusNumber(Lotto winningLotto) {
         while (true) {
             try {
                 String input = lottoView.requestBonusNumber();
-                return new BonusNumber(input);
+                BonusNumber bonusNumber = new BonusNumber(input);
+                validateBonusDuplication(winningLotto, bonusNumber);
+
+                return bonusNumber;
             } catch (IllegalArgumentException iae) {
                 lottoView.printErrorMessage(iae.getMessage());
             }
+        }
+    }
+
+    private void validateBonusDuplication(Lotto winningLotto,BonusNumber bonusNumber) {
+        if (winningLotto.contains(bonusNumber.getBonusNumber())) {
+            throw new IllegalArgumentException(BONUS_NUMBER_DUPLICATION.getMessage());
         }
     }
 }
