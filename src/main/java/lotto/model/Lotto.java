@@ -107,4 +107,8 @@ public class Lotto {
     public boolean contains(int input) {
         return numbers.stream().anyMatch(integer -> integer == input);
     }
+
+    public int countMatches(Lotto other) {
+        return (int) this.numbers.stream().filter(other::contains).count();
+    }
 }

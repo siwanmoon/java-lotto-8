@@ -22,6 +22,7 @@ public class LottoResult {
         for (Map.Entry<LottoRank, Integer> entry : statistics.entrySet()) {
             LottoRank rank = entry.getKey();
             int count = entry.getValue();
+
             total += rank.getPrizeMoney() * count;
         }
 

@@ -1,10 +1,9 @@
 package lotto.controller;
 
-import static lotto.common.message.ErrorMessage.BONUS_NUMBER_DUPLICATION;
-import static lotto.common.message.ErrorMessage.ERROR_MESSAGE_PREFIX;
-
 import lotto.model.BonusNumber;
 import lotto.model.Lotto;
+import lotto.model.LottoResult;
+import lotto.model.WinningLotto;
 import lotto.model.firstclasscollection.LottoTickets;
 import lotto.model.firstclasscollection.LottoTicketsDTO;
 import lotto.model.PurchaseAmount;
@@ -28,12 +27,11 @@ public class LottoController {
 
     public void run() {
         PurchaseAmount lottoPurchaseAmount = requestPurchaseAmount();
-        LottoTickets lottoTickets = buyLotto(lottoPurchaseAmount);
-        Lotto winningLotto = requestLottoWinningNumber();
-        BonusNumber bonusNumber = requestBonusNumber(winningLotto);
-        lottoWinningService.getResult()
-
-        // feat: 로또 당첨 기능 추가해야함
+        LottoTickets userTickets = buyLotto(lottoPurchaseAmount);
+        Lotto winningLottoWithoutBonus = requestLottoWinningNumber();
+        WinningLotto winningLotto = requestBonusNumber(winningLottoWithoutBonus);
+        LottoResult lottoResult = lottoWinningService.calculateStatistics(userTickets, winningLotto);
+        double profitRate = lottoWinningService.calculateProfitRate(lottoResult, lottoPurchaseAmount);
     }
 
     private PurchaseAmount requestPurchaseAmount() {
@@ -66,24 +64,15 @@ public class LottoController {
         }
     }
 
-    private BonusNumber requestBonusNumber(Lotto winningLotto) {
+    private WinningLotto requestBonusNumber(Lotto winningLotto) {
         while (true) {
             try {
                 String input = lottoView.requestBonusNumber();
                 BonusNumber bonusNumber = new BonusNumber(input);
-                validateBonusDuplication(winningLotto, bonusNumber);
-
-                return bonusNumber;
+                return new WinningLotto(winningLotto, bonusNumber);
             } catch (IllegalArgumentException iae) {
                 lottoView.printErrorMessage(iae.getMessage());
             }
-        }
-    }
-
-    private void validateBonusDuplication(Lotto winningLotto,BonusNumber bonusNumber) {
-        if (winningLotto.contains(bonusNumber.getBonusNumber())) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_PREFIX.getMessage()
-                    + BONUS_NUMBER_DUPLICATION.getMessage());
         }
     }
 }
