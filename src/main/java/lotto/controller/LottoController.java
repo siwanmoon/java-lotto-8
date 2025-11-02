@@ -2,20 +2,24 @@ package lotto.controller;
 
 import lotto.model.BonusNumber;
 import lotto.model.Lotto;
-import lotto.model.LottoDTO;
 import lotto.model.firstclasscollection.LottoTicketsDTO;
 import lotto.model.PurchaseAmount;
 import lotto.model.service.LottoBuyingService;
+import lotto.model.service.LottoWinningService;
 import lotto.view.LottoView;
 
 public class LottoController {
 
     private final LottoView lottoView;
     private final LottoBuyingService lottoBuyingService;
+    private final LottoWinningService lottoWinningService;
 
-    public LottoController(LottoView lottoView, LottoBuyingService lottoBuyingService) {
+    public LottoController(LottoView lottoView,
+                           LottoBuyingService lottoBuyingService,
+                           LottoWinningService lottoWinningService) {
         this.lottoView = lottoView;
         this.lottoBuyingService = lottoBuyingService;
+        this.lottoWinningService = lottoWinningService;
     }
 
     public void run() {
@@ -23,6 +27,8 @@ public class LottoController {
         LottoTicketsDTO lottoTicketsDTO = buyLotto(lottoPurchaseAmount);
         Lotto winningLotto = requestLottoWinningNumber();
         BonusNumber bonusNumber = requestBonusNumber();
+
+        // feat: 로또 당첨 기능 추가해야함
     }
 
     private PurchaseAmount requestPurchaseAmount() {

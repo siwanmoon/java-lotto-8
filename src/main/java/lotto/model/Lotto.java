@@ -8,6 +8,7 @@ import static lotto.common.message.ErrorMessage.ERROR_MESSAGE_PREFIX;
 import static lotto.common.message.ErrorMessage.INVALID_LOTTO_SIZE;
 import static lotto.common.message.ErrorMessage.LOTTO_NUMBER_DECIMAL;
 import static lotto.common.message.ErrorMessage.LOTTO_NUMBER_DUPLICATE;
+import static lotto.common.message.ErrorMessage.LOTTO_NUMBER_NOT_BLANK;
 import static lotto.common.message.ErrorMessage.LOTTO_NUMBER_NOT_NUMERIC;
 import static lotto.common.message.ErrorMessage.LOTTO_NUMBER_OUT_OF_RANGE;
 import static lotto.common.message.ErrorMessage.LOTTO_NUMBER_TOO_BIG;
@@ -70,6 +71,8 @@ public class Lotto {
     }
 
     private static int validateInputNumber(String input) {
+        checkNotBlank(input);
+
         try {
             double number = Double.parseDouble(input.trim());
             checkNotDecimal(number);
@@ -77,6 +80,12 @@ public class Lotto {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ERROR_MESSAGE_PREFIX.getMessage()
                     + LOTTO_NUMBER_NOT_NUMERIC.getMessage());
+        }
+    }
+
+    private static void checkNotBlank(String input) {
+        if (input.isBlank()) {
+            throw new IllegalArgumentException(LOTTO_NUMBER_NOT_BLANK.getMessage());
         }
     }
 

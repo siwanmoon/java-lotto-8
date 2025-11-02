@@ -5,6 +5,8 @@ import lotto.model.LottoGenerator;
 import lotto.model.LottoGeneratorImpl;
 import lotto.model.service.LottoBuyingService;
 import lotto.model.service.LottoBuyingServiceImpl;
+import lotto.model.service.LottoWinningService;
+import lotto.model.service.LottoWinningServiceImpl;
 import lotto.view.InputView;
 import lotto.view.LottoView;
 import lotto.view.OutputView;
@@ -17,7 +19,8 @@ public class Application {
         LottoView lottoView = new LottoView(inputView, outputView);
         LottoGenerator lottoGenerator = new LottoGeneratorImpl();
         LottoBuyingService lottoBuyingService = new LottoBuyingServiceImpl(lottoGenerator);
-        LottoController lottoController = new LottoController(lottoView, lottoBuyingService);
+        LottoWinningService lottoWinningService = new LottoWinningServiceImpl();
+        LottoController lottoController = new LottoController(lottoView, lottoBuyingService, lottoWinningService);
 
         lottoController.run();
     }
