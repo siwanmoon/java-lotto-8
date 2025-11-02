@@ -1,5 +1,6 @@
 package lotto.view;
 
+import static lotto.common.message.ErrorMessage.ERROR_MESSAGE_PREFIX;
 import static lotto.common.message.ViewMessage.PRINT_LOTTO_NUMBER_SEPERATOR;
 import static lotto.common.message.ViewMessage.PRINT_LOTTO_NUMBER_PREFIX;
 import static lotto.common.message.ViewMessage.PRINT_LOTTO_NUMBER_SUFFIX;
@@ -14,8 +15,8 @@ import lotto.model.firstclasscollection.LottoTicketsDTO;
 
 public class OutputView {
 
-    public void printMessage(String message) {
-        System.out.println(message);
+    public void printErrorMessage(String message) {
+        System.out.println(ERROR_MESSAGE_PREFIX.getMessage() + message);
     }
 
     public void requestPurchaseAmount() {

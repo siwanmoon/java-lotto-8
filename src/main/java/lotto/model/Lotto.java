@@ -35,7 +35,7 @@ public class Lotto {
 
     private void validateSize(List<Integer> numbers) {
         if (numbers.size() != LOTTO_SIZE) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_PREFIX.getMessage() + INVALID_LOTTO_SIZE.getMessage());
+            throw new IllegalArgumentException(INVALID_LOTTO_SIZE.getMessage());
         }
     }
 
@@ -43,15 +43,13 @@ public class Lotto {
         Set<Integer> uniqueNumbers = new HashSet<>(numbers);
 
         if (uniqueNumbers.size() != LOTTO_SIZE) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_PREFIX.getMessage()
-                    + LOTTO_NUMBER_DUPLICATE.getMessage());
+            throw new IllegalArgumentException(LOTTO_NUMBER_DUPLICATE.getMessage());
         }
     }
 
     private void validateRange(List<Integer> numbers) {
         if (numbers.stream().anyMatch(n -> n < LOTTO_MIN_NUMBER || n > LOTTO_MAX_NUMBER)) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_PREFIX.getMessage()
-                    + LOTTO_NUMBER_OUT_OF_RANGE.getMessage());
+            throw new IllegalArgumentException(LOTTO_NUMBER_OUT_OF_RANGE.getMessage());
         }
     }
 
@@ -78,8 +76,7 @@ public class Lotto {
             checkNotDecimal(number);
             return changeNumberToInteger(number);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_PREFIX.getMessage()
-                    + LOTTO_NUMBER_NOT_NUMERIC.getMessage());
+            throw new IllegalArgumentException(LOTTO_NUMBER_NOT_NUMERIC.getMessage());
         }
     }
 
@@ -91,15 +88,13 @@ public class Lotto {
 
     private static void checkNotDecimal(double number) {
         if (number % 1 != 0) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_PREFIX.getMessage()
-                    + LOTTO_NUMBER_DECIMAL.getMessage());
+            throw new IllegalArgumentException(LOTTO_NUMBER_DECIMAL.getMessage());
         }
     }
 
     private static int changeNumberToInteger(double number) {
         if (number > Integer.MAX_VALUE || number < Integer.MIN_VALUE) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_PREFIX.getMessage()
-                    + LOTTO_NUMBER_TOO_BIG.getMessage());
+            throw new IllegalArgumentException(LOTTO_NUMBER_TOO_BIG.getMessage());
         }
 
         return (int) number;

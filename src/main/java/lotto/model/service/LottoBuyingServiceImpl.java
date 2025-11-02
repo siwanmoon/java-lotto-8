@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import lotto.model.Lotto;
 import lotto.model.LottoGenerator;
-import lotto.model.firstclasscollection.LottoTicketsDTO;
 import lotto.model.PurchaseAmount;
 import lotto.model.firstclasscollection.LottoTickets;
 
@@ -22,8 +21,7 @@ public class LottoBuyingServiceImpl implements LottoBuyingService {
     @Override
     public LottoTickets buyLotto(PurchaseAmount purchaseAmount) {
         long lottoTicketsCount = countLottoTickets(purchaseAmount);
-        LottoTickets lottoTickets = generateLottoTickets(lottoTicketsCount);
-        return lottoTickets;
+        return generateLottoTickets(lottoTicketsCount);
     }
 
     private long countLottoTickets(PurchaseAmount purchaseAmount) {

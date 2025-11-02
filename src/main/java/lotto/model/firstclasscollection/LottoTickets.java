@@ -1,7 +1,12 @@
 package lotto.model.firstclasscollection;
 
+import java.util.EnumMap;
 import java.util.List;
+import java.util.Map;
+import lotto.common.LottoRank;
 import lotto.model.Lotto;
+import lotto.model.LottoResult;
+import lotto.model.WinningLotto;
 
 public class LottoTickets {
 
@@ -15,7 +20,18 @@ public class LottoTickets {
         return lottoTickets;
     }
 
-    public boolean containsNumber(int number) {
-        return this.lottoTickets.stream().anyMatch(lotto -> lotto.contains(number));
+    public LottoResult calculateStatistics(WinningLotto winningLotto) {
+
+        Map<LottoRank, Integer> resultCounts = new EnumMap<>(LottoRank.class);
+
+        for (Lotto ticket : lottoTickets) {
+            LottoRank rank = winningLotto.calculateRank(ticket);
+
+            if (rank != null) {
+                resultCounts.put(rank, resultCounts.getOrDefault(rank, 0) + 1);
+            }
+        }
+
+        return new LottoResult(resultCounts);
     }
 }

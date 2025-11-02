@@ -30,8 +30,7 @@ public class BonusNumber {
         try {
             bonusNumber = Double.parseDouble(input);
         } catch (NumberFormatException nfe) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_PREFIX.getMessage()
-                    + BONUS_NUMBER_HAS_STRING.getMessage());
+            throw new IllegalArgumentException(BONUS_NUMBER_HAS_STRING.getMessage());
         }
 
         return bonusNumber;

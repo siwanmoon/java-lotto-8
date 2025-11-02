@@ -43,8 +43,7 @@ public class PurchaseAmount {
         try {
             price = Double.parseDouble(input);
         } catch (NumberFormatException nfe) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_PREFIX.getMessage()
-                    + PURCHASE_AMOUNT_HAS_STRING.getMessage());
+            throw new IllegalArgumentException(PURCHASE_AMOUNT_HAS_STRING.getMessage());
         }
 
         return price;
@@ -52,22 +51,19 @@ public class PurchaseAmount {
 
     private void checkPriceTooBig(double price) {
         if (Double.isInfinite(price) || price > MAX_PURCHASE_AMOUNT) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_PREFIX.getMessage()
-                    + PURCHASE_AMOUNT_TOO_BIG.getMessage());
+            throw new IllegalArgumentException(PURCHASE_AMOUNT_TOO_BIG.getMessage());
         }
     }
 
     private void checkPriceNotPositive(double price) {
         if (price <= 0) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_PREFIX.getMessage()
-                    + PURCHASE_AMOUNT_NOT_POSITIVE.getMessage());
+            throw new IllegalArgumentException(PURCHASE_AMOUNT_NOT_POSITIVE.getMessage());
         }
     }
 
     private void checkAmountIsMultipleOfLottoPrice(double price) {
         if (price % LOTTO_PRICE != 0) {
-            throw new IllegalArgumentException(ERROR_MESSAGE_PREFIX.getMessage()
-                    + PURCHASE_AMOUNT_NOT_MULTIPLE_OF_LOTTO_PRICE.getMessage());
+            throw new IllegalArgumentException(PURCHASE_AMOUNT_NOT_MULTIPLE_OF_LOTTO_PRICE.getMessage());
         }
     }
 }

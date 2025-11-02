@@ -1,6 +1,5 @@
 package lotto.view;
 
-import java.util.List;
 import lotto.model.firstclasscollection.LottoTicketsDTO;
 
 public class LottoView {
@@ -14,7 +13,7 @@ public class LottoView {
     }
 
     public void printErrorMessage(String errorMessage) {
-        outputView.printMessage(errorMessage);
+        outputView.printErrorMessage(errorMessage);
     }
 
     public String requestPurchaseAmount() {
