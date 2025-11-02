@@ -2,6 +2,7 @@ package lotto.controller;
 
 import lotto.model.BonusNumber;
 import lotto.model.Lotto;
+import lotto.model.firstclasscollection.LottoTickets;
 import lotto.model.firstclasscollection.LottoTicketsDTO;
 import lotto.model.PurchaseAmount;
 import lotto.model.service.LottoBuyingService;
@@ -24,7 +25,7 @@ public class LottoController {
 
     public void run() {
         PurchaseAmount lottoPurchaseAmount = requestPurchaseAmount();
-        LottoTicketsDTO lottoTicketsDTO = buyLotto(lottoPurchaseAmount);
+        LottoTickets lottoTickets = buyLotto(lottoPurchaseAmount);
         Lotto winningLotto = requestLottoWinningNumber();
         BonusNumber bonusNumber = requestBonusNumber();
 
@@ -42,11 +43,12 @@ public class LottoController {
         }
     }
 
-    private LottoTicketsDTO buyLotto(PurchaseAmount lottoPurchaseAmount) {
-        LottoTicketsDTO lottoTicketsDTO = lottoBuyingService.buyLotto(lottoPurchaseAmount);
+    private LottoTickets buyLotto(PurchaseAmount lottoPurchaseAmount) {
+        LottoTickets lottoTickets = lottoBuyingService.buyLotto(lottoPurchaseAmount);
+        LottoTicketsDTO lottoTicketsDTO = LottoTicketsDTO.from(lottoTickets);
         lottoView.printPurchasedLottos(lottoTicketsDTO);
 
-        return lottoTicketsDTO;
+        return lottoTickets;
     }
 
     private Lotto requestLottoWinningNumber() {

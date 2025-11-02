@@ -20,10 +20,10 @@ public class LottoBuyingServiceImpl implements LottoBuyingService {
     }
 
     @Override
-    public LottoTicketsDTO buyLotto(PurchaseAmount purchaseAmount) {
+    public LottoTickets buyLotto(PurchaseAmount purchaseAmount) {
         long lottoTicketsCount = countLottoTickets(purchaseAmount);
         LottoTickets lottoTickets = generateLottoTickets(lottoTicketsCount);
-        return LottoTicketsDTO.from(lottoTickets);
+        return lottoTickets;
     }
 
     private long countLottoTickets(PurchaseAmount purchaseAmount) {
