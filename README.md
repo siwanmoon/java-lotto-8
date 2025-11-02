@@ -7,7 +7,7 @@
 - [x] 구입 금액에 맞는 로또 발행
 - [x] 당첨 번호 및 보너스 번호 입력 받기
 - [x] 로또 번호와 당첨 번호 비교 및 당첨 확인
-- [ ] 당첨 내역 및 수익률 출력
+- [x] 당첨 내역 및 수익률 출력
 
 ---
 
@@ -38,8 +38,8 @@
 - `ErrorMessage` : 에러 발생시 출력할 메세지들을 모아놓은 상수 클래스
 - `ViewMessage` : 입출력시 사용할 메세지들을 모아놓은 상수 클래스
 
-
-- `Strategy` : 프로그램의 규칙과 관련된 상수를 뫃아놓은 클래스
+- `LottoRank` : 로또 당첨 규칙을 상수로 모아놓은 클래스
+- `Strategy` : 프로그램의 규칙과 관련된 상수를 모아놓은 클래스
 
 ### [controller]
 
@@ -51,16 +51,22 @@
 - `LottoTicketsDTO` : `LottoTickets`의 데이터 전송 객체
 
 
+- `BonusNumber` : 보너스 번호 객체
 - `Lotto` : 로또 객체
 - `LottoDTO` : `Lotto`의 데이터 전송 객체
 - `LottoGenerator` : 로또를 생성하는 객체의 인터페이스
 - `LottoGeneratorImpl` : `LottoGenerator`를 구현한 객체
+- `LottoResult` : 사용자의 로또 당첨 결과 객체
 - `PurchaseAmount` : 로또 구매 금액 객체
+- `WinningLotto` : 로또 당첨 번호 객체
+- `WinningResultDTO` : 로또 당첨 결과와 수익률의 데이터 전송 객체
 
 ### [service]
 
-- `LottoBuyingServie` : 로또 구매 서비스를 담당하는 객체
-- `LottoBuyingServieImpl` : `LottoBuyingService`를 구현한 객체
+- `LottoBuyingService` : 로또 구매 서비스를 담당하는 객체
+- `LottoBuyingServiceImpl` : `LottoBuyingService`를 구현한 객체
+- `LottoWinningService` : 로또 당첨 서비스를 당당하는 객체
+- `LottoWinningServiceImpl` : `LottoWinningService`를 구현한 객체
 
 ### [view]
 

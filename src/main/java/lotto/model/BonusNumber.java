@@ -6,7 +6,6 @@ import static lotto.common.message.ErrorMessage.BONUS_NUMBER_DECIMAL;
 import static lotto.common.message.ErrorMessage.BONUS_NUMBER_HAS_STRING;
 import static lotto.common.message.ErrorMessage.BONUS_NUMBER_OVER_MAX_NUMBER;
 import static lotto.common.message.ErrorMessage.BONUS_NUMBER_UNDER_MIN_NUMBER;
-import static lotto.common.message.ErrorMessage.ERROR_MESSAGE_PREFIX;
 
 public class BonusNumber {
 

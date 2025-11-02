@@ -1,6 +1,5 @@
 package lotto.model.service;
 
-import lotto.model.LottoResult;
 import lotto.model.PurchaseAmount;
 import lotto.model.WinningLotto;
 import lotto.model.WinningResultDTO;

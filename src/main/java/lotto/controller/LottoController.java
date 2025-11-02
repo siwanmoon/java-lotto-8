@@ -2,7 +2,6 @@ package lotto.controller;
 
 import lotto.model.BonusNumber;
 import lotto.model.Lotto;
-import lotto.model.LottoResult;
 import lotto.model.WinningLotto;
 import lotto.model.WinningResultDTO;
 import lotto.model.firstclasscollection.LottoTickets;

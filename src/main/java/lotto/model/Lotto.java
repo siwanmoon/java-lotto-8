@@ -4,7 +4,6 @@ import static lotto.common.Strategy.LOTTO_MAX_NUMBER;
 import static lotto.common.Strategy.LOTTO_MIN_NUMBER;
 import static lotto.common.Strategy.LOTTO_NUMBER_SEPERATOR;
 import static lotto.common.Strategy.LOTTO_SIZE;
-import static lotto.common.message.ErrorMessage.ERROR_MESSAGE_PREFIX;
 import static lotto.common.message.ErrorMessage.INVALID_LOTTO_SIZE;
 import static lotto.common.message.ErrorMessage.LOTTO_NUMBER_DECIMAL;
 import static lotto.common.message.ErrorMessage.LOTTO_NUMBER_DUPLICATE;
@@ -14,6 +13,7 @@ import static lotto.common.message.ErrorMessage.LOTTO_NUMBER_OUT_OF_RANGE;
 import static lotto.common.message.ErrorMessage.LOTTO_NUMBER_TOO_BIG;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -24,7 +24,9 @@ public class Lotto {
 
     public Lotto(List<Integer> numbers) {
         validate(numbers);
-        this.numbers = numbers;
+        List<Integer> sortedNumbers = new ArrayList<>(numbers);
+        Collections.sort(sortedNumbers);
+        this.numbers = sortedNumbers;
     }
 
     private void validate(List<Integer> numbers) {

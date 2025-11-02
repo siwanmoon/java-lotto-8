@@ -2,7 +2,6 @@ package lotto.model;
 
 import static lotto.common.Strategy.LOTTO_PRICE;
 import static lotto.common.Strategy.MAX_PURCHASE_AMOUNT;
-import static lotto.common.message.ErrorMessage.ERROR_MESSAGE_PREFIX;
 import static lotto.common.message.ErrorMessage.PURCHASE_AMOUNT_HAS_STRING;
 import static lotto.common.message.ErrorMessage.PURCHASE_AMOUNT_NOT_BLANK;
 import static lotto.common.message.ErrorMessage.PURCHASE_AMOUNT_NOT_MULTIPLE_OF_LOTTO_PRICE;

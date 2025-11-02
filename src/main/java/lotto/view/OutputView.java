@@ -19,7 +19,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import lotto.common.LottoRank;
 import lotto.model.LottoDTO;
-import lotto.model.WinningLotto;
 import lotto.model.WinningResultDTO;
 import lotto.model.firstclasscollection.LottoTicketsDTO;
 
