@@ -1,7 +1,8 @@
-package lotto.model;
+package lotto.model.dto;
 
 import java.util.Map;
-import lotto.common.LottoRank;
+import lotto.model.LottoRank;
+import lotto.model.LottoResult;
 
 public record WinningResultDTO(Map<LottoRank, Integer> statistics, double profitRate) {
 

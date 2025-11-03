@@ -2,8 +2,6 @@ package lotto.model;
 
 import static lotto.common.message.ErrorMessage.BONUS_NUMBER_DUPLICATION;
 
-import lotto.common.LottoRank;
-
 public class WinningLotto {
 
     private final Lotto winningLotto;

@@ -1,10 +1,11 @@
-package lotto.model.service;
+package lotto.model.service.impl;
 
 import lotto.model.LottoResult;
 import lotto.model.PurchaseAmount;
 import lotto.model.WinningLotto;
-import lotto.model.WinningResultDTO;
+import lotto.model.dto.WinningResultDTO;
 import lotto.model.firstclasscollection.LottoTickets;
+import lotto.model.service.LottoWinningService;
 
 public class LottoWinningServiceImpl implements LottoWinningService {
 

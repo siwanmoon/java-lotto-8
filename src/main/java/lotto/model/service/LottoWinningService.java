@@ -2,7 +2,7 @@ package lotto.model.service;
 
 import lotto.model.PurchaseAmount;
 import lotto.model.WinningLotto;
-import lotto.model.WinningResultDTO;
+import lotto.model.dto.WinningResultDTO;
 import lotto.model.firstclasscollection.LottoTickets;
 
 public interface LottoWinningService {

@@ -1,6 +1,7 @@
-package lotto.model;
+package lotto.model.dto;
 
 import java.util.List;
+import lotto.model.Lotto;
 
 public record LottoDTO(List<Integer> numbers) {
 

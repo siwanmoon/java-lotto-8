@@ -1,4 +1,4 @@
-package lotto.model;
+package lotto.model.generator;
 
 import static lotto.common.Strategy.LOTTO_MIN_NUMBER;
 import static lotto.common.Strategy.LOTTO_MAX_NUMBER;
@@ -6,6 +6,7 @@ import static lotto.common.Strategy.LOTTO_SIZE;
 
 import java.util.List;
 import camp.nextstep.edu.missionutils.Randoms;
+import lotto.model.Lotto;
 
 public class LottoGeneratorImpl implements LottoGenerator {
 

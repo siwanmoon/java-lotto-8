@@ -1,7 +1,7 @@
-package lotto.model.firstclasscollection;
+package lotto.model.dto;
 
 import java.util.List;
-import lotto.model.LottoDTO;
+import lotto.model.firstclasscollection.LottoTickets;
 
 public record LottoTicketsDTO(List<LottoDTO> lottoTicketsDTO) {
 

@@ -1,7 +1,7 @@
 package lotto.view;
 
-import lotto.model.WinningResultDTO;
-import lotto.model.firstclasscollection.LottoTicketsDTO;
+import lotto.model.dto.WinningResultDTO;
+import lotto.model.dto.LottoTicketsDTO;
 
 public class LottoView {
 

@@ -2,7 +2,6 @@ package lotto.model;
 
 import java.util.Map;
 import java.util.EnumMap;
-import lotto.common.LottoRank;
 
 public class LottoResult {
 

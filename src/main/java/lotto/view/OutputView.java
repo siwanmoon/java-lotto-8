@@ -17,10 +17,10 @@ import static lotto.common.message.ViewMessage.TICKET_COUNT_UNIT;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import lotto.common.LottoRank;
-import lotto.model.LottoDTO;
-import lotto.model.WinningResultDTO;
-import lotto.model.firstclasscollection.LottoTicketsDTO;
+import lotto.model.LottoRank;
+import lotto.model.dto.LottoDTO;
+import lotto.model.dto.WinningResultDTO;
+import lotto.model.dto.LottoTicketsDTO;
 
 public class OutputView {
 

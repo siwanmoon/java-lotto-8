@@ -1,12 +1,12 @@
 package lotto;
 
 import lotto.controller.LottoController;
-import lotto.model.LottoGenerator;
-import lotto.model.LottoGeneratorImpl;
+import lotto.model.generator.LottoGenerator;
+import lotto.model.generator.LottoGeneratorImpl;
 import lotto.model.service.LottoBuyingService;
-import lotto.model.service.LottoBuyingServiceImpl;
+import lotto.model.service.impl.LottoBuyingServiceImpl;
 import lotto.model.service.LottoWinningService;
-import lotto.model.service.LottoWinningServiceImpl;
+import lotto.model.service.impl.LottoWinningServiceImpl;
 import lotto.view.InputView;
 import lotto.view.LottoView;
 import lotto.view.OutputView;

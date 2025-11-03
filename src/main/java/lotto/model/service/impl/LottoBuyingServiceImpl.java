@@ -1,4 +1,4 @@
-package lotto.model.service;
+package lotto.model.service.impl;
 
 import static lotto.common.Strategy.LOTTO_PRICE;
 
@@ -6,9 +6,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import lotto.model.Lotto;
-import lotto.model.LottoGenerator;
+import lotto.model.generator.LottoGenerator;
 import lotto.model.PurchaseAmount;
 import lotto.model.firstclasscollection.LottoTickets;
+import lotto.model.service.LottoBuyingService;
 
 public class LottoBuyingServiceImpl implements LottoBuyingService {
 
